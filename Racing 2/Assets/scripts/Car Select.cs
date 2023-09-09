@@ -38,22 +38,20 @@ public class CarSelect : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             transform.position += new Vector3(4, 0 ,0);
-            Debug.Log("1");
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
             transform.position += new Vector3(-4, 0, 0);
-            Debug.Log("2");
         }
 
         if(transform.position.x == -12)
         {
-            transform.position -= new Vector3(-16, 0, 0);
+            transform.position = new Vector3(8, 0, 1);
         }
 
         if (transform.position.x == 12)
         {
-            transform.position -= new Vector3(16, 0, 0);
+            transform.position = new Vector3(-8, 0, 1);
         }
     }
 }

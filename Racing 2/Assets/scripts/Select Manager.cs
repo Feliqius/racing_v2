@@ -13,7 +13,7 @@ public class SelectManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()    
     {
-        Camera.transform.position = new Vector3(0, 2, 7);
+        Camera.transform.position = new Vector3(0, 2, 6);
         Camera.transform.eulerAngles = new Vector3(13, 180, 0);
 
         Door.transform.position = new Vector3(0, 1.25f, 3.7f);
@@ -34,7 +34,7 @@ public class SelectManager : MonoBehaviour
             go = true;
         }
 
-        if(go == true && Camera.transform.position.z > 3)
+        if(go == true && Camera.transform.position.z > 3.5)
         {
             Camera.transform.position += new Vector3(0, 0, -2) * Time.deltaTime;
         }
