@@ -7,11 +7,16 @@ public class Player : MonoBehaviour
 {
     [Range(0, 10)]
     public int Speed;
+ 
+    public GameObject newModel;
+
+    public SelectManager selectManager;
 
     // Start is called before the first frame update
     void Start()
     {
         Speed = 5;
+       
     }
 
     // Update is called once per frame

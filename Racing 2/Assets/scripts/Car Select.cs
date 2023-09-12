@@ -6,7 +6,38 @@ public class CarSelect : MonoBehaviour
 {
     public string color;
 
+    public GameObject SelectManager;
+
+    public GameObject SelectButton;
+
+    SelectManager selectManager;
+
+    public bool buyed;
+    public bool selected;
+
     void Start()
+    {
+        SetCars(); 
+        selectManager = SelectManager.GetComponent<SelectManager>();
+    }
+
+    void Update()
+    {
+         ChangeCar();
+        SwitchSide();
+        ChangePlayerColor();
+
+        if(transform.position == new Vector3(0, 0, 1) && selected)
+        {
+            SelectButton.SetActive(false);
+        }
+        else
+        {
+            SelectButton.SetActive(true);
+        }
+    }
+
+    void SetCars()
     {
         switch (color)
         {
@@ -30,21 +61,11 @@ public class CarSelect : MonoBehaviour
                 transform.position = new Vector3(-8, 0, 1);
                 break;
         }
-                   
     }
 
-    void Update()
+    void SwitchSide()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            transform.position += new Vector3(4, 0 ,0);
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            transform.position += new Vector3(-4, 0, 0);
-        }
-
-        if(transform.position.x == -12)
+        if (transform.position.x == -12)
         {
             transform.position = new Vector3(8, 0, 1);
         }
@@ -52,6 +73,38 @@ public class CarSelect : MonoBehaviour
         if (transform.position.x == 12)
         {
             transform.position = new Vector3(-8, 0, 1);
+        }
+    }
+
+    void ChangeCar()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            transform.position += new Vector3(4, 0, 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            transform.position += new Vector3(-4, 0, 0);
+        }
+    }
+
+    void ChangePlayerColor()
+    {
+        if (selected)
+        {
+            selectManager.PlayerColor = color;
+        }
+    }
+
+    public void Select()
+    {
+        if (transform.position == new Vector3(0, 0, 1))
+        {
+            selected = true;
+        }
+        else
+        {
+            selected = false;
         }
     }
 }
