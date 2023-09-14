@@ -30,6 +30,7 @@ public class CarSelect : MonoBehaviour
     {
         SetCars(); 
         selectManager = SelectManager.GetComponent<SelectManager>();
+        Coins = Convert.ToInt32(CoinsText.text);        
     }
 
     void Update()
@@ -37,9 +38,12 @@ public class CarSelect : MonoBehaviour
          ChangeCar();
         SwitchSide();
         ChangePlayerColor();
-        ChangeButtons();;
-
-        
+        ChangeButtons();
+        CoinsText.text = Convert.ToString(Coins);
+        if(transform.position == new Vector3(0, 0, 1))
+        {
+            BuyButtonPriceText.text = Convert.ToString(Price);
+        }
     }
 
     void SetCars()
@@ -115,39 +119,26 @@ public class CarSelect : MonoBehaviour
 
     public void Buy()
     {
-        if (transform.position == new Vector3(0, 0, 1) && Convert.ToInt32(CoinsText.text) > Price)
+        if (transform.position == new Vector3(0, 0, 1) && Coins >= Price)
         {
-            buyed = true;
-            CoinsText.text = Convert.ToString(Convert.ToInt32(CoinsText) - 100);
+            Coins = Coins - 100;
+            CoinsText.text = Convert.ToString(Coins);
         }
     }
 
     void ChangeButtons()
     {
-        if (transform.position == new Vector3(0, 0, 1) && selected)
+        if (transform.position == new Vector3(0, 0, 1))
         {
-            SelectButton.SetActive(false);
-        }
-        else
-        {
-            SelectButton.SetActive(true);
-        }
-
-        if (buyed == false)
-        {
-            SelectButton.SetActive(false);
-        }
-
-        if (transform.position == new Vector3(0, 0, 1) && !buyed)
-        {
-            SelectButton.SetActive(false);
-            BuyButton.SetActive(true);
-        }
-
-        if (transform.position == new Vector3(0, 0, 1) && buyed)
-        {
-            SelectButton.SetActive(true);
-            BuyButton.SetActive(false);
+            if(!selected && buyed)
+            {
+                SelectButton.SetActive(true);
+            }
+            else
+            {
+                SelectButton.SetActive(false);
+            }          
+            BuyButton.SetActive(!buyed);
         }
     }
 }

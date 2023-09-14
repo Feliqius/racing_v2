@@ -288,7 +288,7 @@ MonoBehaviour:
   BuyButton: {fileID: 482697918}
   BuyButtonPriceText: {fileID: 1851919728}
   CoinsText: {fileID: 965674504}
-  Price: 200
+  Price: 1000
   buyed: 0
   selected: 0
 --- !u!1001 &33822221
@@ -731,7 +731,7 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 206, y: -183}
   m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.49999976}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &482697920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1432,7 +1432,7 @@ MonoBehaviour:
   BuyButton: {fileID: 482697918}
   BuyButtonPriceText: {fileID: 1851919728}
   CoinsText: {fileID: 965674504}
-  Price: 200
+  Price: 2000
   buyed: 0
   selected: 0
 --- !u!1001 &1053672298
@@ -1975,7 +1975,7 @@ MonoBehaviour:
   BuyButton: {fileID: 482697918}
   BuyButtonPriceText: {fileID: 1851919728}
   CoinsText: {fileID: 965674504}
-  Price: 200
+  Price: 250
   buyed: 0
   selected: 0
 --- !u!1001 &1675783697
@@ -2773,6 +2773,6 @@ MonoBehaviour:
   BuyButton: {fileID: 482697918}
   BuyButtonPriceText: {fileID: 1851919728}
   CoinsText: {fileID: 965674504}
-  Price: 200
+  Price: 500
   buyed: 0
   selected: 0
