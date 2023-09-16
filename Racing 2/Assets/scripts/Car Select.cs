@@ -13,16 +13,19 @@ public class CarSelect : MonoBehaviour
 
     public GameObject SelectButton;
     public GameObject BuyButton;
-    public Text BuyButtonPriceText;
 
+    public Text BuyButtonPriceText;
     public Text CoinsText;
 
     SelectManager selectManager;
 
     public int Price;
+    public int speed;
 
     public bool buyed;
     public bool selected;
+
+
 
     void Start()
     {
@@ -35,7 +38,7 @@ public class CarSelect : MonoBehaviour
     {
          ChangeCar();
         SwitchSide();
-        ChangePlayerColor();
+        ChangePlayerData();
         ChangeButtons();
         CoinsText.text = Convert.ToString(selectManager.coins);
         if(transform.position == new Vector3(0, 0, 1))
@@ -95,11 +98,12 @@ public class CarSelect : MonoBehaviour
         }
     }
 
-    void ChangePlayerColor()
+    void ChangePlayerData()
     {
         if (selected)
         {
             selectManager.PlayerColor = color;
+            selectManager.PlayerSpeed = speed;           
         }
     }
 

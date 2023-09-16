@@ -14,6 +14,8 @@ public class SelectManager : MonoBehaviour
 
     public int coins;
 
+    public int PlayerSpeed;
+
     bool go = false;
 
     // Start is called before the first frame update
