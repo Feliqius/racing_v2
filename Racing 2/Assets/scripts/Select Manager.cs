@@ -12,6 +12,8 @@ public class SelectManager : MonoBehaviour
 
     public string PlayerColor;
 
+    public int coins;
+
     bool go = false;
 
     // Start is called before the first frame update

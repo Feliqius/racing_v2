@@ -907,6 +907,7 @@ MonoBehaviour:
   Door: {fileID: 266089832}
   Canvas: {fileID: 642086688}
   PlayerColor: 
+  coins: 0
 --- !u!4 &483548000
 Transform:
   m_ObjectHideFlags: 0
@@ -1324,7 +1325,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 400
+  m_Text: 2000
 --- !u!222 &965674505
 CanvasRenderer:
   m_ObjectHideFlags: 0

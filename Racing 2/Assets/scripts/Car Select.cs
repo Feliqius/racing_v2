@@ -19,8 +19,6 @@ public class CarSelect : MonoBehaviour
 
     SelectManager selectManager;
 
-    int Coins;
-
     public int Price;
 
     public bool buyed;
@@ -30,7 +28,7 @@ public class CarSelect : MonoBehaviour
     {
         SetCars(); 
         selectManager = SelectManager.GetComponent<SelectManager>();
-        Coins = Convert.ToInt32(CoinsText.text);        
+        selectManager.coins = Convert.ToInt32(CoinsText.text);        
     }
 
     void Update()
@@ -39,7 +37,7 @@ public class CarSelect : MonoBehaviour
         SwitchSide();
         ChangePlayerColor();
         ChangeButtons();
-        CoinsText.text = Convert.ToString(Coins);
+        CoinsText.text = Convert.ToString(selectManager.coins);
         if(transform.position == new Vector3(0, 0, 1))
         {
             BuyButtonPriceText.text = Convert.ToString(Price);
@@ -119,10 +117,11 @@ public class CarSelect : MonoBehaviour
 
     public void Buy()
     {
-        if (transform.position == new Vector3(0, 0, 1) && Coins >= Price)
+        if (transform.position == new Vector3(0, 0, 1) && selectManager.coins >= Price)
         {
-            Coins = Coins - 100;
-            CoinsText.text = Convert.ToString(Coins);
+            selectManager.coins = selectManager.coins - Price;
+            CoinsText.text = Convert.ToString(selectManager.coins);
+            buyed = true;
         }
     }
 
